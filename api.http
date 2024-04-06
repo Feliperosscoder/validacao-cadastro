@@ -1,0 +1,29 @@
+POST http://localhost:3333/register/user
+Content-Type: application/json
+
+{
+  "name": "Felipe",
+  "email": "felipe.rossettodev@gmail.com",
+  "password": "123456",
+  "phone": "48999010353",
+  "birthday": "12/04/2006"
+}
+
+###
+
+POST http://localhost:3333/login/user
+Content-Type: application/json
+
+{
+  "email": "felipe@gmail.com",
+  "password": "123456"
+}
+
+###
+
+POST http://localhost:3333/user/recover-password
+Content-Type: application/json
+
+{
+  "email": "felipe.rossettodev@gmail.com"
+}
