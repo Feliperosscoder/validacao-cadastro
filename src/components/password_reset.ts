@@ -6,7 +6,7 @@ import { resend } from "../lib/resend";
 
 export async function RecoverPassword(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
-    "/user/recover-password",
+    "/reset-password",
     {
       schema: {
         body: z.object({

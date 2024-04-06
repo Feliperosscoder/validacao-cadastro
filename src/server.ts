@@ -2,7 +2,7 @@ import fastify from "fastify";
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
 import { Register } from "./components/register";
 import { Login } from "./components/login";
-import { RecoverPassword } from "./components/recover-passowrd";
+import { RecoverPassword } from "./components/password_reset";
 
 
 const app = fastify()

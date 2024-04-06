@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3333/user/recover-password
+POST http://localhost:3333/reset-password
 Content-Type: application/json
 
 {
