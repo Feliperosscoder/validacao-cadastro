@@ -17,6 +17,7 @@ export async function Login(app: FastifyInstance) {
         response: {
           200: z.object({
             user: z.object({
+              id: z.string().uuid(),
               name: z.string().min(3),
               email: z.string().email(),
               password: z.string(),
@@ -53,6 +54,7 @@ export async function Login(app: FastifyInstance) {
 
       return reply.status(200).send({
         user: {
+          id: user.id,
           name: user.name,
           email: user.email,
           password: user.password,

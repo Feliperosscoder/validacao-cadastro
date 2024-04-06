@@ -10,7 +10,6 @@ Content-Type: application/json
 }
 
 ###
-
 POST http://localhost:3333/login/user
 Content-Type: application/json
 
@@ -20,10 +19,16 @@ Content-Type: application/json
 }
 
 ###
-
 POST http://localhost:3333/reset-password
 Content-Type: application/json
 
 {
   "email": "felipe.rossettodev@gmail.com"
+}
+###
+PUT http://localhost:3333/password-reset/5c4f19df-3e66-490c-b6a6-ac206a8aabea
+Content-Type: application/json
+
+{
+  "password": "aabbcccoetp"
 }
