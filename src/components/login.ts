@@ -1,3 +1,4 @@
+import bcryptjs from "bcryptjs";
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
@@ -41,11 +42,14 @@ export async function Login(app: FastifyInstance) {
       const user = await prisma.user.findFirst({
         where: {
           OR: [{ email: emailOrEmail }, { name: emailOrEmail }],
-          password,
         },
       });
 
-      if (!user) throw new Error("Incorrect email/name or password ");
+      if (!user) throw new Error("Incorrect email/name or password");
+
+      const passwordNormal = await bcryptjs.compare(password, user.password);
+
+      if (!passwordNormal) throw new Error("Incorrect email/name or password");
 
       return reply.status(200).send({
         user: {

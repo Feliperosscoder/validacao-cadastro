@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
+import bcryptjs from "bcryptjs"
 
 export async function Register(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
@@ -40,18 +41,17 @@ export async function Register(app: FastifyInstance) {
         },
       });
 
-      const AllUsers = await prisma.user.findMany();
-      console.log(AllUsers)
-
       if (userFromEmail !== null) {
         throw new Error("this email is already registered.");
       }
+
+      const passwordHash = await bcryptjs.hash(password, 8)
 
       const user = await prisma.user.create({
         data: {
           name,
           email,
-          password,
+          password: passwordHash,
           phone,
           birthday,
         },
