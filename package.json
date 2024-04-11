@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch --env-file .env ./src/server.ts"
+    "dev": "tsx watch --env-file .env ./src/server.ts",
+    "dev:email": "email dev"
   },
   "devDependencies": {
     "@types/node": "^20.12.5",
@@ -14,12 +15,14 @@
   "dependencies": {
     "@fastify/cors": "^9.0.1",
     "@prisma/client": "^5.12.1",
+    "@react-email/components": "0.0.16",
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^2.4.3",
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "fastify-type-provider-zod": "^1.1.9",
+    "react-email": "2.1.1",
     "resend": "^3.2.0",
     "tsx": "^4.7.2",
     "zod": "^3.22.4"

@@ -2,8 +2,8 @@ POST http://localhost:3333/register/user
 Content-Type: application/json
 
 {
-  "name": "Felipe",
-  "email": "felipe123@gmail.com",
+  "name": "leonardo",
+  "email": "leonardo@gmail.com",
   "password": "123456",
   "phone": "48999010353",
   "birthday": "12/04/2006"
@@ -14,8 +14,8 @@ POST http://localhost:3333/login/user
 Content-Type: application/json
 
 {
-  "email": "felipe123@gmail.com",
-  "password": "123456"
+  "nameOrEmail": "leonardo",
+  "password": "869"
 }
 
 ###
@@ -23,7 +23,7 @@ POST http://localhost:3333/reset-password
 Content-Type: application/json
 
 {
-  "email": "felipe.rossettodev@gmail.com"
+  "email": "feliperossettodasilva123@gmail.com"
 }
 ###
 PUT http://localhost:3333/password-reset/5c4f19df-3e66-490c-b6a6-ac206a8aabea

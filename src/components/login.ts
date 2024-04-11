@@ -10,8 +10,7 @@ export async function Login(app: FastifyInstance) {
     {
       schema: {
         body: z.object({
-          email: z.string().email().nullish(),
-          name: z.string().nullish(),
+          nameOrEmail: z.string(),
           password: z.string(),
         }),
         response: {
@@ -29,20 +28,15 @@ export async function Login(app: FastifyInstance) {
       },
     },
     async (request, reply) => {
-      const { name, email, password } = request.body;
+      const { nameOrEmail, password } = request.body;
 
-      let emailOrEmail: string | undefined = undefined;
-
-      if (name) emailOrEmail = name;
-      if (email) emailOrEmail = email;
-
-      if (!emailOrEmail) {
+      if (!nameOrEmail) {
         throw new Error("Neither name nor email provided.");
       }
 
       const user = await prisma.user.findFirst({
         where: {
-          OR: [{ email: emailOrEmail }, { name: emailOrEmail }],
+          OR: [{ email: nameOrEmail }, { name: nameOrEmail }],
         },
       });
 
